@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>熱量計算器</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="bg-primary text-white py-3">
+      <div class="container">
+        <h1 class="h3">熱量計算器</h1>
+        <p class="mb-0">輸入食物與份量，計算總熱量並管理清單。</p>
+      </div>
+    </header>
+
+    <main class="container my-4">
+      <section class="row">
+        <article class="col-lg-6 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h2 class="h5">新增食物</h2>
+              <form id="foodForm" novalidate>
+                <div class="mb-3">
+                  <label for="foodName" class="form-label">食物名稱</label>
+                  <input id="foodName" name="foodName" class="form-control" required minlength="1" >
+                  <div class="invalid-feedback">輸入食物名稱。</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="calPerServing" class="form-label">每份熱量 (kcal)</label>
+                  <input id="calPerServing" name="calPerServing" type="number" min="0" step="1" class="form-control" >
+                  <div class="invalid-feedback">輸入每份熱量（大於或等於 0）。</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="servings" class="form-label">份量（份）</label>
+                  <input id="servings" name="servings" type="number" min="0.1" step="0.1" class="form-control" >
+                  <div class="invalid-feedback">輸入正確的份量（大於 0）。</div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">結果</label>
+                  <p id="instantResult" class="fw-bold">-- kcal</p>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <button id="addBtn" type="submit" class="btn btn-primary">加入清單</button>
+                  <button id="clearBtn" type="button" class="btn btn-outline-secondary">清空欄位</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </article>
+
+        <aside class="col-lg-6">
+          <div class="card shadow-sm mb-3">
+            <div class="card-body">
+              <h2 class="h5">今日清單</h2>
+              <ul id="foodList" class="list-group mb-3"></ul>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <strong>總熱量：</strong>
+                  <span id="totalCalories">0</span> kcal
+                </div>
+                <div>
+                  <button id="exportBtn" class="btn btn-sm btn-outline-primary">匯出 </button>
+                  <button id="resetBtn" class="btn btn-sm btn-danger">重設</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h3 class="h6">使用說明</h3>
+              <ol>
+                <li>輸入食物每份熱量與份量即時計算該項熱量</li>
+                <li>按加入清單會將該筆加入下方清單</li>
+                <li>清單可刪除單筆重設全部或匯出</li>
+              </ol>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="text-center py-3">
+      <small> 飲食熱量計算器專案</small>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+body { background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+header { background: linear-gradient(90deg, #0d6efd, #6610f2); }
+
+#instantResult { font-size: 1.1rem; }
+
+.list-group-item .badge-cal { font-weight: 600; }
+
+.fade-in { animation: fadeIn 300ms ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-6px);} to { opacity:1; transform: translateY(0);} }
+
+@media (max-width: 767px) {
+  header h1 { font-size: 1.1rem; }
+}
